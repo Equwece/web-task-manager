@@ -1,0 +1,302 @@
+.task {
+  box-sizing: border-box;
+  padding: 10px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row; 
+  align-items: flex-start;
+}
+
+p {
+  margin: 0;
+}
+
+.taskTitle {
+  font-size: 1em;
+}
+
+.taskTitle + p {
+  color: grey;
+}
+
+.container {
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.taskContainer {
+  flex: 5;
+  margin: 0 0 0 20px;
+}
+
+.column {
+  flex: 1;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+body {
+  /* font-family: sans-serif; */
+  font-family: Arial;
+  margin: 70px 0 0 0;
+}
+
+a,
+.settingLink {
+  color: #2b2b2b;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.settingLink:hover {
+  text-decoration: underline;
+}
+
+.taskButtons {
+  cursor: pointer;
+  border: 2px solid black;
+  padding: 10px;
+  border-radius: 40px;
+  box-sizing: border-box;
+  margin-top: 20px;
+}
+
+.buttonContainer {
+  position: fixed;
+  display: flex;
+  flex-direction: column-reverse;
+  right: 20px;
+  bottom: 20px;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+#add {
+}
+
+#edit {
+  display: none;
+}
+
+#tag {
+  display: none;
+}
+
+#list {
+  display: none;
+}
+
+#remove {
+  display: none;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgb(0, 0, 0, 0.4);
+}
+
+.editor-content {
+  background-color: #fefefe;
+  margin: 15% auto; 
+  padding: 20px;
+  border: 1px solid #888;
+  width: 700px; 
+  display: flex;
+  flex-direction: column; 
+  box-sizing: border-box;
+}
+
+.editor-content > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.close {
+  color: #aaa;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#editor-textarea {
+  margin-top: 20px;
+  overflow: auto;
+  resize: none;
+  outline: none;
+  width: 100%;
+  box-sizing: border-box;
+  height: 200px;
+  font-size: 1em;
+}
+
+.inputBox {
+  margin: 10px 0 10px 0;
+  font-size: 1em;
+  outline: none;
+}
+
+#saveTask,
+#saveAdd {
+  margin-top: 20px;
+  position: inherit;
+  width: 40px;
+  border: 1px solid black;
+  border-radius: 10px;
+  background: white;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.addWindow {
+  width: 360px;
+}
+
+.loginForm,
+.uploadForm {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  margin: 50px auto;
+}
+
+.inputForm, label, form > a{
+  margin-top: 10px;
+}
+
+header {
+  background-color: #009688;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.headerLink:hover {
+  background-color: #00b6a5;
+  text-decoration: none;
+}
+
+.headerLink {
+  /* display: inline-block; */
+  display: flex;
+  align-items: center;
+  color: white;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.headerLinksBlock {
+  height: 60px;
+  display: flex;
+  align-items: stretch;
+}
+
+#addContainer {
+  display: block;
+}
+
+.markTitle {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+label {
+  font-size: 1em;
+}
+
+.markLabel {
+  display: block;
+  margin: 0 auto;
+  width: 50px;
+  color: grey;
+}
+
+.searchContainer,
+.menuContainer {
+  display: flex;
+  flex-direction: row;
+}
+
+#searchInput {
+  margin-right: 10px;
+  display: none;
+}
+
+.uploadForm {
+  display: none;
+}
+
+.settingLink {
+  cursor: pointer;
+}
+
+#addInputBox {
+  display: none;
+}
+
+.dueSpan {
+  color: blue;
+}
+
+#menuButton {
+  display: none;
+}
+
+#modalMenu {
+  top: 60px;
+}
+
+#menuContainer {
+  padding: 0;
+  display: none;
+}
+
+@media (max-width: 700px) {
+  #menuButton {
+    display: flex;
+  }
+
+  #leftColumn {
+    transition: 0.5s;
+    display: none;
+    position: fixed;
+    background: white;
+    z-index: 1;
+    top: 60px;
+    width: 70%;
+    height: 100%;
+    transition: margin-right 2s;
+  }
+
+  .container {
+    display: black;
+  }
+
+  .editor-content {
+    width: 360px;
+  }
+
+  #menuContainer {
+    display: flex;
+  }
+}
+

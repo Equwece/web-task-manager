@@ -1,0 +1,24 @@
+{% extends "tasks/base.html" %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<form method="post" class="loginForm" action="{% url 'login_form' %}">
+  {% csrf_token %}
+  {{ form }}
+  <input type="submit" class="submitButton inputForm" value="Login">
+  <a href="{% url 'register_form' %}">Sign Up</a>
+  {% if messages %}
+  <ul class="messages">
+      {% for message in messages %}
+      <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+      {% endfor %}
+  </ul>
+  {% endif %}
+</form>
+
+
+
+
+
+{% endblock %}

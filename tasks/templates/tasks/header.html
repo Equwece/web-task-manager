@@ -1,0 +1,36 @@
+<header>
+  <div class="headerLinksBlock">
+    {% if editor %}
+      {% load static %}
+      <div class="menuContainer">
+        <div class="headerLink" id="menuContainer">
+          <img src="{% static 'tasks/menu-line.svg'%}" class="headerLink" id="menuButton" onclick="openFilterColumn()"></img>
+        </div>
+        <a class="headerLink" id="startPageLink" href="{% url 'home' %}">Web Task</a>
+      </div>
+      <div class="searchContainer">
+        <input type="text" id="searchInput" class="inputBox">
+        <img src="{% static 'tasks/search-line.svg'%}" class="headerLink" id="searchButton"></img>
+        <img src="{% static 'tasks/filter-3-line.svg'%}" class="headerLink" id="sortButton" onclick="displaySort()"></img>
+      </div>
+    {% else %}
+      <a class="headerLink" href="{% url 'home' %}">Test Home</a>
+      <a class="headerLink" href="{% url 'blog' %}">Blog</a>
+      <a class="headerLink" href="{% url 'editor' %}">Editor</a>
+      <a class="headerLink" href="{% url 'about' %}">About</a>
+      <a class="headerLink" href="
+      {% if user.is_authenticated %}
+        {% url 'logout' %}
+      {% else %}
+        {% url 'login_form' %}
+      {% endif %}
+      ">
+      {% if user.is_authenticated %}
+        Sign Out
+      {% else %}
+        Sign In
+      {% endif %}
+    </a>
+    {% endif %}
+  </div>
+</header>

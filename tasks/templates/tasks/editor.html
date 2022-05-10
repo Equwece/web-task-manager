@@ -1,0 +1,55 @@
+{% extends "tasks/base.html" %}
+{% block title %}Task editor{% endblock %}
+{% block content %}
+  <div id="modalEditor" class="modal">
+    <div class="editor-content">
+      <div>
+        <p id="editorTitle" class="taskTitle">Task</p>
+        <span id="closeEditor" class="close">&times;</span>
+      </div>
+      <textarea id="editor-textarea" name=""></textarea>
+      <div id="saveTask">Save</div>
+    </div>
+  </div>
+
+  <div id="modalAdd" class="modal">
+    <div class="addWindow editor-content">
+      <div>
+        <p class="taskTitle">Add</p>
+        <span id="closeAdd" class="close">&times;</span>
+      </div>
+      <input id="addInputBox" class="inputBox" type="text">
+      <div id="addContainer"></div>
+      <div id="saveAdd" onclick="saveAddButtonOnclick()">Save</div>
+    </div>
+  </div>
+  
+  <div id="modalMenu" class="modal"></div>
+
+  <div class="container">
+    <div id="leftColumn" class="column">
+      <div class="markContainer">
+      </div>
+      <div class="settingContainer">
+        <a class="settingLink" href="{% url 'export' user.username %}">Export tasks</a>
+        <p class="settingLink" id="importLink" href="">Import tasks</p>
+      </div>
+      <form method="POST" enctype="multipart/form-data" class="uploadForm" action="{% url 'upload' user.username %}">
+        {% csrf_token %}
+        {{ upload_form }}
+        <input type="submit" class="submitButton inputForm" value="Upload">
+      </form>
+    </div>
+    <div class="taskContainer"></div>
+  </div>
+
+  {% load static %}
+  <div class="buttonContainer">
+    <img height="60" width="60" src="{% static 'tasks/add-line.svg'%}" class="taskButtons" id="add"></img>
+    <img height="60" width="60" src="{% static 'tasks/pencil-line.svg'%}" class="taskButtons" id="edit"></img>
+    <img height="60" width="60" src="{% static 'tasks/tag-line.svg'%}" class="taskButtons" id="tag"></img>
+    <img height="60" width="60" src="{% static 'tasks/list-unordered.svg'%}" class="taskButtons" id="list"></img>
+    <img height="60" width="60" src="{% static 'tasks/delete-bin-line.svg'%}" class="taskButtons" id="remove"></img>
+  </div>
+
+{% endblock %}
